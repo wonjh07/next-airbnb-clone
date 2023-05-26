@@ -4,7 +4,7 @@ import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsPrivider from 'next-auth/providers/credentials';
 
-import prisma from '../../app/libs/prismadb';
+import prisma from '../../../app/libs/prismadb';
 import bcrypt from 'bcrypt';
 
 export const authOptions: AuthOptions = {
@@ -19,7 +19,7 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_ID as string,
     }),
     CredentialsPrivider({
-      name: 'credentionls',
+      name: 'credentials',
       credentials: {
         email: { label: 'email', type: 'text' },
         password: { label: 'password', type: 'password' },
