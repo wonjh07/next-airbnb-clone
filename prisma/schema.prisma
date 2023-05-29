@@ -1,6 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+// prisma의 database 문법을 따르면 자동으로 MongoDB 문법으로 변환해서 작동
 generator client {
   provider = "prisma-client-js"
 }

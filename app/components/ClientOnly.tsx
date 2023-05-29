@@ -10,10 +10,7 @@ const ClientOnly: React.FC<ClientOnlyProps> = ({ children }) => {
   const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setHasMounted(true);
-    }, 1000);
-    timer;
+    setHasMounted(true);
   }, []);
 
   if (!hasMounted) {

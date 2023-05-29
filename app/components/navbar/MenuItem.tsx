@@ -1,5 +1,7 @@
 'use client';
 
+import styled from 'styled-components';
+
 interface MenuItemProps {
   onClick: () => void;
   label: string;
@@ -8,13 +10,19 @@ interface MenuItemProps {
 const MenuItem: React.FC<MenuItemProps> = ({ onClick, label }) => {
   return (
     <>
-      <div
-        onClick={onClick}
-        className="hober:bg-neutral-100 trasition px-4 py-3 font-semibold">
-        {label}
-      </div>
+      <Menu onClick={onClick}>{label}</Menu>
     </>
   );
 };
 
 export default MenuItem;
+
+const Menu = styled.div`
+  transition: 0.1s;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+
+  &:hover {
+    background-color: rgb(245, 245, 245);
+  }
+`;

@@ -4,9 +4,11 @@ import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
 import CredentialsPrivider from 'next-auth/providers/credentials';
 
-import prisma from '../../../app/libs/prismadb';
+import prisma from '@/app/libs/prismadb';
 import bcrypt from 'bcrypt';
 
+// nextauth API 작성
+// signIn 과 signOut 함수를 활용해서 편리한 로그인 기능을 제공
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -16,7 +18,7 @@ export const authOptions: AuthOptions = {
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID as string,
-      clientSecret: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     CredentialsPrivider({
       name: 'credentials',

@@ -8,12 +8,12 @@ import { useCallback, useState } from 'react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
 import useRegisterModal from '../hooks/useRegisterModal';
+import useLoginModal from '../hooks/useLoginModal';
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../inputs/Input';
 import { toast } from 'react-hot-toast';
 import Button from './Button';
-import useLoginModal from '../hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
 
 const LoginModal = () => {
@@ -41,6 +41,7 @@ const LoginModal = () => {
       redirect: false,
     }).then((callback) => {
       setIsLoading(false);
+      console.log(callback);
 
       if (callback?.ok) {
         toast.success('Logged in');
@@ -83,13 +84,17 @@ const LoginModal = () => {
         outline
         label="Continue with Google"
         icon={FcGoogle}
-        onClick={() => {}}
+        onClick={() => {
+          signIn('google');
+        }}
       />
       <Button
         outline
         label="Continue with Github"
         icon={AiFillGithub}
-        onClick={() => {}}
+        onClick={() => {
+          signIn('github');
+        }}
       />
       <div className="font light mt-4 text-center text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
