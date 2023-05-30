@@ -1,6 +1,5 @@
 'use client';
 
-import axios from 'axios';
 import { signIn } from 'next-auth/react';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcGoogle } from 'react-icons/fc';
@@ -55,6 +54,11 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome back!" subtitle="Login to your account" />
@@ -98,11 +102,11 @@ const LoginModal = () => {
       />
       <div className="font light mt-4 text-center text-neutral-500">
         <div className="flex flex-row items-center justify-center gap-2">
-          <div>Aleady have an account?</div>
+          <div>First time using Airbnb?</div>
           <div
-            onClick={registerModal.onClose}
+            onClick={toggle}
             className="cursor-pointer text-neutral-800 hover:underline">
-            Log in
+            Create an account
           </div>
         </div>
       </div>
