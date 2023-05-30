@@ -21,6 +21,7 @@ const CategoryInput: React.FC<CategoryInputProps> = ({
         }}
         className={`${isSelected} flex cursor-pointer flex-col gap-3 rounded-xl border-2 p-4 transition hover:border-black`}>
         <Icon size={30} />
+        <div className="font-semibold">{label}</div>
       </div>
     </>
   );
